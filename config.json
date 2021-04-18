@@ -1,0 +1,5 @@
+{
+    "port": 7744,
+    "token": "super-secret-token-here",
+    "directory": "/var/www/example.com/files/"
+}
