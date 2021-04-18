@@ -12,7 +12,7 @@ app.all('/', (req, res) => {
 
 app.post('/api/upload', (req, res, next) => {
     if (!req.body.auth || req.body.auth != config.token) return res.status(403).send('<h1>403 Unauthorized</h1>');
-    if (!req.body.auth || !req.body.url) return res.status(400).send('<h1>Insufficient Data!</h1>');
+    if (!req.body.url) return res.status(400).send('<h1>Insufficient Data!</h1>');
     if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(req.body.url)) return res.status(400).send('<h1>Invalid URL!</h1>');
 
     const http = req.body.url.startsWith('https://') ? require('https') : require('http');
